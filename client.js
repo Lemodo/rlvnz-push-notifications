@@ -1,5 +1,5 @@
 // Hardcoded (https://www.npmjs.com/package/web-push <- sollte man lieber so machen)
-const publicKey = 'BCWGu9MtcRGMVPptBvce16tD_VYXiQdR56eMAhDQwigqM_ughpB8bL_Gs9pwDNrDfsddcpI_GTNlHOuJtmFE3a8';
+const publicVapidKey = 'BCWGu9MtcRGMVPptBvce16tD_VYXiQdR56eMAhDQwigqM_ughpB8bL_Gs9pwDNrDfsddcpI_GTNlHOuJtmFE3a8';
 
 
 
