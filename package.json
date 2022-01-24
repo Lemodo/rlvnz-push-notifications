@@ -1,0 +1,25 @@
+{
+  "name": "rlvnz-push-notifications",
+  "version": "1.0.0",
+  "description": "",
+  "main": "notification.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemodo/rlvnz-push-notifications.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lemodo/rlvnz-push-notifications/issues"
+  },
+  "homepage": "https://github.com/Lemodo/rlvnz-push-notifications#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-static": "^1.2.6",
+    "web-push": "^3.4.5"
+  }
+}
