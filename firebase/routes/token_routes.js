@@ -1,10 +1,12 @@
-const app = require('express');
-const parser = require('body-parser').json();
+const express = require('express');
+const jsonParser = require('body-parser').json();
+const fs = require('fs');
 
-var tokenRouter = module.exports = exports = app.Router();
+var tokenRouter = module.exports = exports = express.Router();
 
-tokenRouter.post("/setToken", parser, (req, res) => {
-    console.log('TOKEN' + req.body.token);
+// Simple route to accept token from user
+tokenRouter.post('/setToken', jsonParser, (req, res) => {
+    let data = JSON.stringify(req.body.token);
+    fs.writeFileSync("tokens.json", data);  //! write the file somewhere here 
+    console.log('TOKEN RECEIVED: ' + req.body.token);
 });
-
-
