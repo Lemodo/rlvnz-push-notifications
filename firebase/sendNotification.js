@@ -2,16 +2,23 @@ const fs = require('fs');
 const request = require('request');
 
 
-let rawdata = fs.readFileSync('tokens.json');
-const requestData = JSON.parse(rawdata);
+let rawData = fs.readFileSync('tokens.json');
+const requestData = JSON.parse(rawData);
 
 
 const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
     'Content-Type': 'application/json'
 };
+
+const body = "Welcome hi this is a test";
+const title = "test123";
+const confirmLink = "https://www.google.com/";
+const declineLink = "https://www.github.com";
+
+
 console.log("sending to:" + requestData);
-const dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\"Are you coming to our party?\",\"title\":\"This is a tester tester\",\"confirm\":\"https://developers.google.com/web/\",\"decline\":\"https://www.yahoo.com/\"}},\"priority\":10}"
+const dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ body +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
 
 const options = {
     url: 'https://fcm.googleapis.com/fcm/send',
