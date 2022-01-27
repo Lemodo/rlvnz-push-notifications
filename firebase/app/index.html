@@ -1,20 +1,38 @@
-<html>
-  <head>Notifications Test</head>
-  <body>
-    <p>
-      Hello Notifications!
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>Hello world!</h1>
+<!--
+  <h2>Shop123</h2>
+  <h3>Notifications</h3>
+  <form action="" method="post"id="notis">
+    <input type="checkbox" name="Stuff1">
+    <label for="Stuff1">Stuff1</label>
+    <input type="checkbox" name="Stuff2">
+    <label for="Stuff2">Stuff2</label>
+    <input type="checkbox" name="Stuff3">
+    <label for="Stuff3">Stuff3</label>
+    <button type="submit">Subscribe</button>
+  </form>
+  -->
 
-  </body>
-  <script src='https://www.gstatic.com/firebasejs/3.6.2/firebase.js'></script>
-  <script src='https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-  <script src='notification.js'></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/firebase-messaging-sw.js');
-      });
-    }
-  </script>
+</body>
+<script src='https://www.gstatic.com/firebasejs/3.6.2/firebase.js'></script>
+<script src='https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='notification.js'></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/firebase-messaging-sw.js');
+    });
+  }
+</script>
 </html>

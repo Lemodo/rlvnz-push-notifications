@@ -11,7 +11,7 @@ const headers = {
 };
 
 const topic = "shop1";
-const method = "DELETE";
+const method = "POST";
 
 
 const options = {

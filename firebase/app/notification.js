@@ -1,7 +1,7 @@
 //init firebase
 //TODO: add firebase config stuff
 
-var config = {
+const config = {
     apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
     authDomain: "relvnz-push-notifications.firebaseapp.com",
     projectId: "relvnz-push-notifications",
@@ -12,8 +12,7 @@ var config = {
 };
 
 firebase.initializeApp(config);
-var messaging = firebase.messaging();
-
+const messaging = firebase.messaging();
 
 // On load register service worker
 if ('serviceWorker' in navigator) {
@@ -52,7 +51,6 @@ if ('serviceWorker' in navigator) {
     });
   });
   }
-console.log('test');
 
 
 /* Callback fired if Instance ID token is updated.
