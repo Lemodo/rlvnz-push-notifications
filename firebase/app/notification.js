@@ -14,6 +14,7 @@ var config = {
 firebase.initializeApp(config);
 var messaging = firebase.messaging();
 
+
 // On load register service worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -51,3 +52,20 @@ if ('serviceWorker' in navigator) {
     });
   });
   }
+console.log('test');
+
+
+/* Callback fired if Instance ID token is updated.
+messaging.onTokenRefresh(function() {
+  messaging.getToken()
+  .then(function(refreshedToken) {
+    console.log('Token refreshed.');
+      refreshedToken = token;
+    // ...
+  })
+  .catch(function(err) {
+    console.log('Unable to retrieve refreshed token ', err);
+    showToken('Unable to retrieve refreshed token ', err);
+  });
+});
+*/

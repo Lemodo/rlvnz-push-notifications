@@ -1,6 +1,8 @@
 importScripts('https://www.gstatic.com/firebasejs/3.5.2/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js');
 
+
+
 // TODO: fill in messaging sender id
 firebase.initializeApp({
   'messagingSenderId': '66487122200'
@@ -23,17 +25,16 @@ self.addEventListener('notificationclick', (event) => {
     clients.openWindow(eventURL.decline);
   }
 }, false);
-
 messaging.setBackgroundMessageHandler((payload) => {
   // Parses data received and sets accordingly
   const data = JSON.parse(payload.data.notification);
   const notificationTitle = data.title;
   const notificationOptions = {
     body: data.body,
-    // icon: '/static/images/5/icons/android-icon-96x96.png',
+    icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmarketplace.haendlerbund.de%2Fpartnerangebot-relevanz-dynamisches-retargeting&psig=AOvVaw2wMnqRyhndJloLd_Z6qyki&ust=1643279047927000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLCc2NGZz_UCFQAAAAAdAAAAABAD",
     actions: [
-      {action: 'confirmAttendance', title: '👍 Confirm attendance'},
-      {action: 'cancel', title: '👎 Not coming'}
+      {action: 'confirmAttendance', title: '👍 Confirm'},
+      {action: 'cancel', title: '👎 Deny'}
     ],
     // For additional data to be sent to event listeners, needs to be set in this data {}
     data: {confirm: data.confirm, decline: data.decline}
