@@ -18,7 +18,7 @@ const declineLink = "https://www.github.com";
 
 
 console.log("sending to:" + requestData);
-const dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ body +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
+const dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ body +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
 
 const options = {
     url: 'https://fcm.googleapis.com/fcm/send',
