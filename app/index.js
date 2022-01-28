@@ -47,7 +47,7 @@ document.getElementById("sendN").addEventListener("click", function(){
         window.alert("Please enter a valid title");
         return false;
     };
-    if(body == undefined || body == null) {
+    if(message == undefined || message == null) {
         window.alert("Please enter a valid message");
         return false;
     };
