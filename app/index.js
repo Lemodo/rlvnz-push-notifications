@@ -64,7 +64,6 @@ document.getElementById("sendN").addEventListener("click", function(){
 
     const url = 'https://fcm.googleapis.com/fcm/send';
     const method = 'POST';
-    const headers = headers;
     const body = dataString;
 
 
