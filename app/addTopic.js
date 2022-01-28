@@ -5,14 +5,11 @@ const request = require('request');
 let rawData = fs.readFileSync('tokens.json');
 const token = JSON.parse(rawData);
 
-
 const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4'
 };
-
 const topic = "shop1";
 const method = "POST";
-
 
 const options = {
     url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/'+topic,
@@ -26,8 +23,8 @@ function callback(error, response, body) {
     }
 }
 
-request(options, callback);
-console.log('Request completed')
+    request(options, callback);
+    console.log('Request completed')
 
 
 

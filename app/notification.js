@@ -31,6 +31,7 @@ if ('serviceWorker' in navigator) {
       return messaging.getToken();
     })
     .then((token) => {
+      document.getElementById("token").innerHTML =token;
       // Simple ajax call to send user token to server for saving
       $.ajax({
         type: 'POST',
