@@ -37,7 +37,7 @@ document.getElementById("sendN").addEventListener("click", function(){
     const title = document.getElementById("title");
     const body = document.getElementById("message");
     const confirmLink = document.getElementById("accept");
-    const declineLink = document.getElementById("decline");
+    const declineLink = document.getElementById("deny");
 
     if(requestData == undefined || requestData == null) {
         window.alert("Please enter a valid token");
