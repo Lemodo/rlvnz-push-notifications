@@ -35,7 +35,7 @@ document.getElementById("sendN").addEventListener("click", function(){
         'Content-Type': 'application/json'
     };
     const title = document.getElementById("title");
-    const body = document.getElementById("message");
+    const message = document.getElementById("message");
     const confirmLink = document.getElementById("accept");
     const declineLink = document.getElementById("deny");
 
@@ -60,7 +60,7 @@ document.getElementById("sendN").addEventListener("click", function(){
         return false;
     };
 
-    var dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ body +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
+    var dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+message+"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
 
     const url = 'https://fcm.googleapis.com/fcm/send';
     const method = 'POST';
