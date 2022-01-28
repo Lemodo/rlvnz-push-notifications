@@ -39,27 +39,27 @@ document.getElementById("sendN").addEventListener("click", function(){
     const confirmLink = document.getElementById("accept");
     const declineLink = document.getElementById("deny");
 
-    if(requestData == undefined || requestData == null) {
+    if(requestData == undefined || requestData == "") {
         window.alert("Please enter a valid token");
         console.log("problem with token input");
         return false;
     };
-    if(title == undefined || title == null) {
+    if(title == undefined || title == "") {
         window.alert("Please enter a valid title");
         console.log("problem with title");
         return false;
     };
-    if(message == undefined || message == null) {
+    if(message == undefined || message == "") {
         window.alert("Please enter a valid message");
         console.log("problem with message");
         return false;
     };
-    if(confirmLink == undefined || confirmLink == null) {
+    if(confirmLink == undefined || confirmLink == "") {
         console.log("problem with accept link");
         window.alert("Please enter a valid link");
         return false;
     };
-    if(declineLink == undefined || declineLink == null) {
+    if(declineLink == undefined || declineLink == "") {
         console.log("problem with accept link");
         window.alert("Please enter a valid link");
         return false;
@@ -73,10 +73,10 @@ document.getElementById("sendN").addEventListener("click", function(){
 
 
     $.post({
-        type: method,
         url: url,
+        type: method,
         headers: headers,
-        body: dataString
+        body: body
     }).done(function(response) {
         console.log(response);
     })
