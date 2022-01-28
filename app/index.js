@@ -41,21 +41,26 @@ document.getElementById("sendN").addEventListener("click", function(){
 
     if(requestData == undefined || requestData == null) {
         window.alert("Please enter a valid token");
+        console.log("problem with token input");
         return false;
     };
     if(title == undefined || title == null) {
         window.alert("Please enter a valid title");
+        console.log("problem with title");
         return false;
     };
     if(message == undefined || message == null) {
         window.alert("Please enter a valid message");
+        console.log("problem with message");
         return false;
     };
     if(confirmLink == undefined || confirmLink == null) {
+        console.log("problem with accept link");
         window.alert("Please enter a valid link");
         return false;
     };
     if(declineLink == undefined || declineLink == null) {
+        console.log("problem with accept link");
         window.alert("Please enter a valid link");
         return false;
     };
