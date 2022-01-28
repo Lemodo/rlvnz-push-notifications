@@ -67,16 +67,13 @@ document.getElementById("sendN").addEventListener("click", function(){
 
     var dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+message+"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
 
-    const url = 'https://fcm.googleapis.com/fcm/send';
     const method = 'POST';
-    const body = dataString;
-
 
     $.post({
-        url: url,
+        url: "https://fcm.googleapis.com/fcm/send",
         type: method,
         headers: headers,
-        body: body
+        data: dataString
     }).done(function(response) {
         console.log(response);
     })
