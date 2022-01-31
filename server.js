@@ -40,28 +40,24 @@ app.post('/api/notificationSend', function(req, res){
   }
 
   request(options, callback);
-
 });
 
 //send topic button
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/api/topicSend', function(req, res){
   const requestData = req.body.topic;
+  console.log(requestData);
   const title = req.body.title;
   const message = req.body.message;
   const confirmLink = req.body.accept;
   const declineLink = req.body.deny;
-  res.send("recieved request!");
-
   const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
     'Content-Type': 'application/json'
   };
 
   console.log("sending to:" + requestData);
-  console.log(title);
-  console.log(message);
-  const dataString = "{\"to\":\"/topics/shop1"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ message +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
+  const dataString = "{\"to\":\"/topics/"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ message +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
   console.log(dataString)
 
   const options = {
@@ -78,6 +74,7 @@ app.post('/api/topicSend', function(req, res){
   }
 
   request(options, callback);
+  res.send("recieved request!");
 });
 
 
