@@ -16,7 +16,8 @@ const messaging = firebase.messaging();
 
 // On load register service worker
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
+  document.getElementById("preNotification").addEventListener('submit', () => {
+    evt.preventDefault();
     navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
       // Successfully registers service worker
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
