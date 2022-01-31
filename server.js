@@ -61,6 +61,8 @@ app.post('/api/topicSend', function(req, res){
   };
 
   console.log("sending to:" + requestData);
+  console.log(title);
+  console.log(message);
   const dataString = "{\"to\":\"/topics/"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+message+"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
 
   const options = {
