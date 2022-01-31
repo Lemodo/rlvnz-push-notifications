@@ -4,10 +4,9 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 
+
 const PORT = process.env.PORT || 3000;
-
 const tokenRouter = require(__dirname + '/routes/token_routes');
-
 
 //Send notification button
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -44,7 +43,6 @@ app.post('/api/notificationSend', function(req, res){
 
 });
 
-
 //send topic button
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/api/topicSend', function(req, res){
@@ -63,7 +61,8 @@ app.post('/api/topicSend', function(req, res){
   console.log("sending to:" + requestData);
   console.log(title);
   console.log(message);
-  const dataString = "{\"to\":\"/topics/"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+message+"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
+  const dataString = "{\"to\":\"/topics/shop1"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ message +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
+  console.log(dataString)
 
   const options = {
     url: 'https://fcm.googleapis.com/fcm/send',

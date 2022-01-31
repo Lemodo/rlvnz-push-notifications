@@ -1,9 +1,7 @@
 const fs = require('fs');
 const request = require('request');
 
-
 const requestData = "shop1";
-
 
 const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
@@ -14,7 +12,6 @@ const body = "Welcome hi this is a test";
 const title = "test123";
 const confirmLink = "https://www.google.com/";
 const declineLink = "https://www.github.com";
-
 
 console.log("sending to:" + requestData);
 const dataString = "{\"to\":\"/topics/"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ body +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
