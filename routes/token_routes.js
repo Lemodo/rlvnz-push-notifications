@@ -20,7 +20,8 @@ tokenRouter.post('/setToken', jsonParser, (req, res) => {
 
 
 tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
-  const token = JSON.stringify(req.body.token);
+  const token = req.body.token;
+  console.log(token);
   const webinars = JSON.stringify(req.body.webinars);
   const casestudies = JSON.stringify(req.body.casestudies);
   const podcasts = JSON.stringify(req.body.podcasts);
@@ -32,9 +33,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
   const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
   };
-    console.log(webinars)
     if (webinars === "true"){
-        console.log("inside the true")
     const options = {
         url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_webinars',
         method: "POST",
@@ -46,6 +45,5 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
             }
         }
         request(options, callback);
-        console.log('webinars request completed');
     }
 }); 
