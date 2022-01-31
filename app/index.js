@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 document.getElementById("addTopic").addEventListener("click", function() {
 
-    const topic = "shop1";
+    const topic = document.getElementById("topic").value;
     const topicToken = document.getElementById("topicToken").value;
     const method = "POST";
     const headers = {
