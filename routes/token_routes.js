@@ -1,8 +1,7 @@
 const express = require('express');
 const jsonParser = require('body-parser').json();
 const fs = require('fs');
-const app = express();
-const bodyParser = require('body-parser');
+const request = require('request');
 
 const tokenRouter = module.exports = exports = express.Router();
 
@@ -19,21 +18,23 @@ tokenRouter.post('/setToken', jsonParser, (req, res) => {
 });
 
 
-//send topic button
-tokenRouter.post('/preNotificationAdd', function(req, res){
-  const token = req.body.token;
-  const webinars = req.body.webinars;
-  const casestudies = req.body.casestudies;
-  const podcasts = req.body.podcasts;
-  const blogarticles = req.body.blogarticles;
-  const ebooks = req.body.ebooks;
-  const videos = req.body.videos;
+
+tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
+  const token = JSON.stringify(req.body.token);
+  const webinars = JSON.stringify(req.body.webinars);
+  const casestudies = JSON.stringify(req.body.casestudies);
+  const podcasts = JSON.stringify(req.body.podcasts);
+  const blogarticles = JSON.stringify(req.body.blogarticles);
+  const ebooks = JSON.stringify(req.body.ebooks);
+  const videos = JSON.stringify(req.body.videos);
   res.send("recieved request!");
 
   const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
   };
-    if (webinars == true){
+    console.log(webinars)
+    if (webinars === "true"){
+        console.log("inside the true")
     const options = {
         url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_webinars',
         method: "POST",
@@ -45,5 +46,6 @@ tokenRouter.post('/preNotificationAdd', function(req, res){
             }
         }
         request(options, callback);
+        console.log('webinars request completed');
     }
 }); 

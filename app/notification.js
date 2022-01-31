@@ -39,18 +39,17 @@ if ('serviceWorker' in navigator) {
     .then((token) => {
       localStorage.setItem('browserToken', token);
       var token = localStorage.getItem('browserToken');
-      $.ajax({
+      $.post({
         type: 'POST',
         url: '/api/preNotificationAdd',
-        dataType: 'json',
-        data: {
+        data: JSON.stringify({
           "token": token, 
           "webinars": webinars, 
           "casestudies": casestudies, 
           "podcasts": podcasts, 
           "blogarticles": blogarticles, 
           "ebooks": ebooks, 
-          "videos": videos},
+          "videos": videos}),
         contentType: 'application/json',
         success: (data) => {
           console.log('Success ', data);
@@ -60,14 +59,13 @@ if ('serviceWorker' in navigator) {
         }
       })
     })
-    .then((token) => {
-      var token = localStorage.getItem('browserToken');
+    .then(() => {
+      const token = localStorage.getItem('browserToken');
       document.getElementById("token").innerHTML =token;
       // Simple ajax call to send user token to server for saving
-      $.ajax({
+      $.post({
         type: 'POST',
         url: '/api/setToken',
-        dataType: 'json',
         data: JSON.stringify({token: token}),
         contentType: 'application/json',
         success: (data) => {
