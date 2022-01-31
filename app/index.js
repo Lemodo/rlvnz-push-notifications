@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $("#staticBackdrop").modal('show');
+    });
+
 document.getElementById("addTopic").addEventListener("click", function() {
 
     const topic = "shop1";

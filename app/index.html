@@ -6,28 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $("#staticBackdrop").modal('show');
+    });
+</script>
 </head>
 <body>
 
-<!-- Modal -->
-<div id="preNotificationModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Tell us what you're interested in...</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="webinars" checked>
+                    <label class="form-check-label" for="webinars">Webinars</label>
+                  </div>
+                  <br>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="casestudies" checked>
+                    <label class="form-check-label" for="casestudies">Case studies</label>
+                  </div>
+                  <br>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="podcasts" checked>
+                    <label class="form-check-label" for="podcasts">Podcasts</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="blogartices" checked>
+                    <label class="form-check-label" for="blogartices">Blog articles</label>
+                  </div>
+                  <br>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="ebooks" checked>
+                    <label class="form-check-label" for="ebooks">Ebooks & guides</label>
+                  </div>
+                  <br>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="videos" checked>
+                    <label class="form-check-label" for="videos">Videos & templates</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No thanks</button>
+              <button type="submit" id="preNotificationSubmit" data-bs-dismiss="modal" class="btn btn-primary">Get Notified</button>
+            </div>
+
       </div>
     </div>
-
   </div>
-</div>
 
   <div class="container">
     <br>
@@ -148,11 +189,6 @@
     </div>
 
   </div>
-  <script>
-    $(window).load(function(){        
-    $('#preNotificationModal').modal('show');
-     }); 
-  </script>
   <script src="index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

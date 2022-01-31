@@ -16,8 +16,13 @@ const messaging = firebase.messaging();
 
 // On load register service worker
 if ('serviceWorker' in navigator) {
-  document.getElementById("preNotification").addEventListener('submit', () => {
-    evt.preventDefault();
+  document.getElementById("preNotificationSubmit").addEventListener('click', () => {
+    const webinars = document.getElementById("webinars").checked;
+    const casestudies = document.getElementById("casestudies").checked;
+    const podcasts = document.getElementById("podcasts").checked;
+    const blogarticles = document.getElementById("blogartices").checked;
+    const ebooks = document.getElementById("ebooks").checked;
+    const videos = document.getElementById("videos").checked;
     navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
       // Successfully registers service worker
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -32,6 +37,31 @@ if ('serviceWorker' in navigator) {
       return messaging.getToken();
     })
     .then((token) => {
+      localStorage.setItem('browserToken', token);
+      var token = localStorage.getItem('browserToken');
+      $.ajax({
+        type: 'POST',
+        url: '/api/preNotificationAdd',
+        dataType: 'json',
+        data: {
+          "token": token, 
+          "webinars": webinars, 
+          "casestudies": casestudies, 
+          "podcasts": podcasts, 
+          "blogarticles": blogarticles, 
+          "ebooks": ebooks, 
+          "videos": videos},
+        contentType: 'application/json',
+        success: (data) => {
+          console.log('Success ', data);
+        },
+        error: (err) => {
+          console.log('Error ', err);
+        }
+      })
+    })
+    .then((token) => {
+      var token = localStorage.getItem('browserToken');
       document.getElementById("token").innerHTML =token;
       // Simple ajax call to send user token to server for saving
       $.ajax({
@@ -51,7 +81,7 @@ if ('serviceWorker' in navigator) {
     .catch((err) => {
       console.log('ServiceWorker registration failed: ', err);
     });
-  });
+  }, false);
   }
 
 
