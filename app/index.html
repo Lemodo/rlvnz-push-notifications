@@ -85,6 +85,41 @@
         </div>  
         <br>
         <button type="submit" id="sendN" class="btn btn-primary">Send Notification to token</button>
+      </form>
+      <form action="/api/topicSend" method="post">
+        <br>
+        <div class="row ">
+          <div class="col">
+            <label for="token" class="form-label">Topic</label>
+            <input class="form-control" name="topic" id="topic" value="shop1" type="text" placeholder="shop1" aria-label="input readonly" readonly>
+          </div>
+          <div class="col">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" id="title" name="title" type="text" placeholder="Title" aria-label="input">
+              <!--button type="submit" class="btn btn-primary mb-3 ms-1">Send Notification</button-->
+          </div>
+          <div class="col">
+            <label for="message" class="form-label">Message</label>
+            <input class="form-control" id="message" name="message" type="text" placeholder="Message" aria-label="input">
+          </div>
+        </div>
+        <br>
+        <div class="row ">
+          <div class="col">
+            <label for="image" class="form-label">Image Link</label>
+            <input class="form-control" id="image" name="image" placeholder="coming soon" type="text" aria-label="input readonly" readonly>
+          </div>
+          <div class="col">
+            <label for="accept" class="form-label">Accept Link</label>
+            <input class="form-control" id="accept" name="accept" type="text" placeholder="https://shop1.com/blog3" aria-label="input">
+              <!--button type="submit" class="btn btn-primary mb-3 ms-1">Send Notification</button-->
+          </div>
+          <div class="col">
+            <label for="deny" class="form-label">Deny Link</label>
+            <input class="form-control" id="deny" name="deny" type="text" placeholder="https://shop1.com/unsubscribe" aria-label="input">
+          </div>
+        </div>  
+        <br>
         <button type="submit" id="sendB" class="btn btn-primary">Send Notification to topic</button> 
       </form>
       </div>
