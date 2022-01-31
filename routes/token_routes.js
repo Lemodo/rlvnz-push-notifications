@@ -46,4 +46,69 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
         }
         request(options, callback);
     }
+    if (casestudies === "true"){
+        const options = {
+            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_casestudies',
+            method: "POST",
+            headers: headers
+        };
+            function callback(error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body);
+                }
+            }
+            request(options, callback);
+        }
+    if (podcasts === "true"){
+    const options = {
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_podcasts',
+        method: "POST",
+        headers: headers
+    };
+        function callback(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body);
+            }
+        }
+        request(options, callback);
+    }
+    if (blogarticles === "true"){
+        const options = {
+            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_blogarticles',
+            method: "POST",
+            headers: headers
+        };
+            function callback(error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body);
+                }
+            }
+            request(options, callback);
+        }
+    if (ebooks === "true"){
+        const options = {
+            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_ebooks',
+             method: "POST",
+              headers: headers
+         };
+              function callback(error, response, body) {
+                  if (!error && response.statusCode == 200) {
+                       console.log(body);
+                 }
+              }
+               request(options, callback);
+        }
+    if (videos === "true"){
+            const options = {
+                url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_videos',
+                method: "POST",
+                headers: headers
+            };
+                function callback(error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        console.log(body);
+                    }
+                }
+                request(options, callback);
+            }
 }); 
