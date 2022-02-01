@@ -1,12 +1,13 @@
 const express = require('express');
-const req = require('express/lib/request');
 const bodyParser = require('body-parser');
 const request = require('request');
 const app = express();
 
-
 const PORT = process.env.PORT || 3000;
 const tokenRouter = require(__dirname + '/routes/token_routes');
+
+
+
 
 //Send notification button
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -16,21 +17,18 @@ app.post('/api/notificationSend', function(req, res){
   const message = req.body.message;
   const confirmLink = req.body.accept;
   const declineLink = req.body.deny;
-  res.send("recieved request!");
-
   const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
     'Content-Type': 'application/json'
   };
 
   console.log("sending to:" + requestData);
-  const dataString = "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+message+"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}";
-
+  
   const options = {
     url: 'https://fcm.googleapis.com/fcm/send',
     method: 'POST',
     headers: headers,
-    body: dataString
+    body: "{\"to\":\""+requestData+"\",\"data\":{\"notification\":{\"body\":\""+message+"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
   };
 
   function callback(error, response, body) {
@@ -40,13 +38,13 @@ app.post('/api/notificationSend', function(req, res){
   }
 
   request(options, callback);
+  res.send("recieved request!");
 });
 
 //send topic button
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/api/topicSend', function(req, res){
   const requestData = req.body.topic;
-  console.log(requestData);
   const title = req.body.title;
   const message = req.body.message;
   const confirmLink = req.body.accept;
@@ -57,14 +55,12 @@ app.post('/api/topicSend', function(req, res){
   };
 
   console.log("sending to:" + requestData);
-  const dataString = "{\"to\":\"/topics/"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ message +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
-  console.log(dataString)
 
   const options = {
     url: 'https://fcm.googleapis.com/fcm/send',
     method: 'POST',
     headers: headers,
-    body: dataString
+    body: "{\"to\":\"/topics/"+requestData+"\",\"data\":{\"notification\":{\"body\":\""+ message +"\",\"title\":\"" + title +"\",\"confirm\":\"" + confirmLink + "\",\"decline\":\""+ declineLink +"\"}},\"priority\":10}"
   };
 
   function callback(error, response, body) {
@@ -76,8 +72,6 @@ app.post('/api/topicSend', function(req, res){
   request(options, callback);
   res.send("recieved request!");
 });
-
-
 
 
 app.use('/api', tokenRouter);

@@ -1,3 +1,4 @@
+// add token to topic button
 document.getElementById("addTopic").addEventListener("click", function() {
     const topic = document.getElementById("topic").value;
     const topicToken = document.getElementById("topicToken").value;
