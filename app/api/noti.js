@@ -20,6 +20,7 @@ firebase.initializeApp({
     measurementId: "G-RZK789TB4B"
   });
   const messaging = firebase.messaging();
+  console.log("test")
   document.getElementById("preNotificationSubmit").addEventListener('click', () => {
       /*
     const webinars = document.getElementById("webinars").checked;
@@ -44,7 +45,6 @@ firebase.initializeApp({
     })
     .then((token) => {
       localStorage.setItem('browserToken', token);
-      const token = localStorage.getItem('browserToken');
       console.log(token)
       connection.query(
           'INSERT INTO token VALUES ?',[token],
