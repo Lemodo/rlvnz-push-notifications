@@ -21,7 +21,6 @@ tokenRouter.post('/setToken', jsonParser, (req, res) => {
 
 tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
   const token = req.body.token;
-  console.log(token);
   const webinars = JSON.stringify(req.body.webinars);
   const casestudies = JSON.stringify(req.body.casestudies);
   const podcasts = JSON.stringify(req.body.podcasts);
@@ -49,17 +48,17 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
         }
 
     if (webinars === "true"){
-    const options = {
-        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_webinars',
-        method: "POST",
-        headers: headers
-    };
-        function callback(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                console.log(body);
+        const options = {
+            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_webinars',
+            method: "POST",
+            headers: headers
+        };
+            function callback(error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body);
+                }
             }
-        }
-        request(options, callback);
+            request(options, callback);
     }
     if (casestudies === "true"){
         const options = {
@@ -89,41 +88,41 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (blogarticles === "true"){
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_blogarticles',
-            method: "POST",
-            headers: headers
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_blogarticles',
+        method: "POST",
+        headers: headers
         };
-            function callback(error, response, body) {
-                if (!error && response.statusCode == 200) {
-                    console.log(body);
-                }
+        function callback(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body);
             }
-            request(options, callback);
         }
+        request(options, callback);
+    }
     if (ebooks === "true"){
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_ebooks',
-             method: "POST",
-              headers: headers
-         };
-              function callback(error, response, body) {
-                  if (!error && response.statusCode == 200) {
-                       console.log(body);
-                 }
-              }
-               request(options, callback);
-        }
-    if (videos === "true"){
-            const options = {
-                url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_videos',
-                method: "POST",
-                headers: headers
-            };
-                function callback(error, response, body) {
-                    if (!error && response.statusCode == 200) {
-                        console.log(body);
-                    }
-                }
-                request(options, callback);
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_ebooks',
+        method: "POST",
+        headers: headers
+        };
+        function callback(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body);
             }
+        }
+        request(options, callback);
+    }
+    if (videos === "true"){
+        const options = {
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_videos',
+        method: "POST",
+        headers: headers
+        };
+        function callback(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log(body);
+            }
+        }
+        request(options, callback);
+    }
 }); 
