@@ -51,6 +51,7 @@ if ('serviceWorker' in navigator) {
           "ebooks": ebooks, 
           "videos": videos}),
         contentType: 'application/json',
+        crossDomain: true,
         success: (data) => {
           console.log('Success ', data);
         },
@@ -68,6 +69,7 @@ if ('serviceWorker' in navigator) {
         url: 'leo.adrule-labs.com/api/setToken',
         data: JSON.stringify({token: token}),
         contentType: 'application/json',
+        crossDomain: true,
         success: (data) => {
           console.log('Success ', data);
         },
