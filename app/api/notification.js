@@ -37,6 +37,7 @@ if ('serviceWorker' in navigator) {
       return messaging.getToken();
     })
     .then((token) => {
+      console.log(token);
       localStorage.setItem('browserToken', token);
       var token = localStorage.getItem('browserToken');
       $.post({
