@@ -15,8 +15,7 @@ const connection = mysql.createConnection({
 
 tokenRouter.use(cors())
 // Simple route to accept token from user
-tokenRouter.post('/setToken', jsonParser, (req, res) => {
-    const token = JSON.stringify(req.body.token, 4);  
+tokenRouter.post('/setToken', jsonParser, (req, res) => { 
     console.log("TOKEN: " + req.body.token);
     res.send(req.body.token);
 });

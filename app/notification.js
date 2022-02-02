@@ -51,13 +51,16 @@ if ('serviceWorker' in navigator) {
     })
     .then(() => {
       // Requests user browser permission
+      console.log('requestPerms');
       return messaging.requestPermission();
     })
     .then(() => {
       // Gets token
+      console.log('get token')
       return messaging.getToken();
     })
     .then((token) => {
+      console.log('send token')
       localStorage.setItem('browserToken', token);
       $.post({
         type: 'POST',
