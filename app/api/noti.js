@@ -1,5 +1,7 @@
 //init firebase
 //TODO: add firebase config stuff
+$.getScript("https://www.gstatic.com/firebasejs/3.6.2/firebase.js");
+$.getScript("https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js");
 
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
