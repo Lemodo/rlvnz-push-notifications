@@ -1,7 +1,5 @@
 //init firebase
 //TODO: add firebase config stuff
-$.getScript("https://www.gstatic.com/firebasejs/3.6.2/firebase.js");
-$.getScript("https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js");
 
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
@@ -17,8 +15,6 @@ const messaging = firebase.messaging();
 const popupBefore = localStorage.getItem('popupBefore');
     if (popupBefore != "true") {
       $(document).ready(function(){
-        document.createElement("preNotiPopup");
-        $("#preNotiPopup").load("https://leo.adrule-labs.com/api/popup.html")
         localStorage.setItem('popupBefore', "true");
         $("#staticBackdrop").modal('show');
       });
