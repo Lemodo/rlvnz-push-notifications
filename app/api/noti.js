@@ -1,6 +1,9 @@
 //init firebase
 //TODO: add firebase config stuff
 
+import("https://www.gstatic.com/firebasejs/3.6.2/firebase.js");
+import("https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js");
+
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
   authDomain: "relvnz-push-notifications.firebaseapp.com",
@@ -11,6 +14,17 @@ firebase.initializeApp({
   measurementId: "G-RZK789TB4B"
 });
 const messaging = firebase.messaging();
+
+const popupBefore = localStorage.getItem('popupBefore');
+    if (popupBefore != "true") {
+      $(document).ready(function(){
+        document.createElement("preNotiPopup");
+        $("#preNotiPopup").load("https://leo.adrule-labs.com/api/popup.html")
+        localStorage.setItem('popupBefore', "true");
+        $("#staticBackdrop").modal('show');
+      });
+    }
+
 
 // On load register service worker
 if ('serviceWorker' in navigator) {
@@ -23,7 +37,7 @@ if ('serviceWorker' in navigator) {
     const ebooks = document.getElementById("ebooks").checked;
     const videos = document.getElementById("videos").checked;
     
-    navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
+    navigator.serviceWorker.register('https://leo.adrule-labs.com/firebase-messaging-sw.js').then((registration) => {
       // Successfully registers service worker
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
       messaging.useServiceWorker(registration);
