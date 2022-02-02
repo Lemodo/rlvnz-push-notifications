@@ -7,26 +7,16 @@ const tokenRouter = module.exports = exports = express.Router();
 
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: '35.210.247.152',
     user: 'root',
-    password: 'root',
+    password: 'ASduy93hsiodh8f*@hasdf',
     database: 'noti',
-    port: '3307'
   });
 
 tokenRouter.use(cors())
 // Simple route to accept token from user
 tokenRouter.post('/setToken', jsonParser, (req, res) => {
-    const token = JSON.stringify(req.body.token, 4);
-    
-    connection.query(
-        'INSERT INTO noti (token) VALUES (?)', [token],
-        function(err, results, fields) {
-          console.log(results); // results contains rows returned by server
-          console.log(fields); // fields contains extra meta data about results, if available
-        }
-      );
-      
+    const token = JSON.stringify(req.body.token, 4);  
     console.log("TOKEN: " + req.body.token);
     res.send(req.body.token);
 });
@@ -35,24 +25,30 @@ tokenRouter.post('/setToken', jsonParser, (req, res) => {
 
 tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
   const token = req.body.token;
-  const webinars = JSON.stringify(req.body.webinars);
-  const casestudies = JSON.stringify(req.body.casestudies);
-  const podcasts = JSON.stringify(req.body.podcasts);
-  const blogarticles = JSON.stringify(req.body.blogarticles);
-  const ebooks = JSON.stringify(req.body.ebooks);
-  const videos = JSON.stringify(req.body.videos);
+  const webinars = (req.body.webinars ===true ? 1 : 0);
+  const casestudies = (req.body.casestudies ===true ? 1 : 0);
+  const podcasts = (req.body.podcasts ===true ? 1 : 0);
+  const blogarticles = (req.body.blogarticles ===true ? 1 : 0);
+  const ebooks = (req.body.ebooks ===true ? 1 : 0);
+  const videos = (req.body.videos  ? 1 : 0);
   const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
   };
   res.send("recieved request!");
-
+console.log(req.body.webinars);
   
     if (token != null || token !== undefined) {
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1',
+            url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1',
             method: "POST",
             headers: headers
         };
+        connection.query(
+            'INSERT IGNORE INTO noti (token, webinars, casestudies, podcasts, blogarticles, ebooks, videos) VALUES (?, ?, ?, ?, ?, ?, ?)', [token, webinars, casestudies, podcasts, blogarticles, ebooks, videos],
+            function(err, results, fields) {
+              console.log(results); // results contains rows returned by server
+            }
+          );
         function callback(error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body);
@@ -63,7 +59,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
 
     if (webinars === "true"){
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_webinars',
+            url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_webinars',
             method: "POST",
             headers: headers
         };
@@ -76,7 +72,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (casestudies === "true"){
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_casestudies',
+            url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_casestudies',
             method: "POST",
             headers: headers
         };
@@ -89,7 +85,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (podcasts === "true"){
     const options = {
-        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_podcasts',
+        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_podcasts',
         method: "POST",
         headers: headers
     };
@@ -102,7 +98,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (blogarticles === "true"){
         const options = {
-        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_blogarticles',
+        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_blogarticles',
         method: "POST",
         headers: headers
         };
@@ -115,7 +111,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (ebooks === "true"){
         const options = {
-        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_ebooks',
+        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_ebooks',
         method: "POST",
         headers: headers
         };
@@ -128,7 +124,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (videos === "true"){
         const options = {
-        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_videos',
+        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_videos',
         method: "POST",
         headers: headers
         };

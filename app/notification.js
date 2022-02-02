@@ -1,6 +1,5 @@
 //init firebase
 //TODO: add firebase config stuff
-
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
   authDomain: "relvnz-push-notifications.firebaseapp.com",
@@ -11,6 +10,28 @@ firebase.initializeApp({
   measurementId: "G-RZK789TB4B"
 });
 const messaging = firebase.messaging();
+
+
+
+const popupBefore = localStorage.getItem('popupBefore');
+if (popupBefore != "true") {
+  $(document).ready(function(){
+  $("#staticBackdrop").modal('show');
+  localStorage.setItem('popupBefore', "true");
+  });
+}
+
+function newToken() {
+  const oldToken = localStorage.getItem('browserToken');
+  console.log(oldToken);
+  if(oldToken == null) {
+    $(document).ready(function(){
+    $("#staticBackdrop").modal('show');
+    localStorage.setItem('popupBefore', "true");
+    });
+  }
+}
+newToken();
 
 // On load register service worker
 if ('serviceWorker' in navigator) {
