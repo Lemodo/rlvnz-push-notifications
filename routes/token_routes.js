@@ -1,19 +1,32 @@
 const express = require('express');
 const jsonParser = require('body-parser').json();
-const fs = require('fs');
 const request = require('request');
 const cors = require('cors');
+const mysql = require('mysql2');
 const tokenRouter = module.exports = exports = express.Router();
+
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root',
+    database: 'noti',
+    port: '3307'
+  });
 
 tokenRouter.use(cors())
 // Simple route to accept token from user
 tokenRouter.post('/setToken', jsonParser, (req, res) => {
     const token = JSON.stringify(req.body.token, 4);
-    fs.writeFile("tokens.json", token, "utf8", function (err){ //* write token to file
-        if (err) {
-            return console.log(err);
+    
+    connection.query(
+        'INSERT INTO noti (token) VALUES (?)', [token],
+        function(err, results, fields) {
+          console.log(results); // results contains rows returned by server
+          console.log(fields); // fields contains extra meta data about results, if available
         }
-    });
+      );
+      
     console.log("TOKEN: " + req.body.token);
     res.send(req.body.token);
 });

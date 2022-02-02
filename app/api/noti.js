@@ -1,13 +1,27 @@
 //init firebase
 //TODO: add firebase config stuff
 const popupBefore = localStorage.getItem('popupBefore');
-    if (popupBefore != "true") {
-      $(document).ready(function(){
-        $("#staticBackdrop").modal('show');
-        localStorage.setItem('popupBefore', "true");
-      });
-    }
+if (popupBefore != "true") {
+  $(document).ready(function(){
+  $("#staticBackdrop").modal('show');
+  localStorage.setItem('popupBefore', "true");
+  });
+}
 
+function newToken() {
+  const oldToken = localStorage.getItem('browserToken');
+  console.log(oldToken);
+  const token = messaging.getToken();
+  console.log(token);
+  
+  if(oldToken != token) {
+    $(document).ready(function(){
+    $("#staticBackdrop").modal('show');
+    localStorage.setItem('popupBefore', "true");
+    });
+  }
+}
+newToken();
 
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
@@ -89,4 +103,4 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   }, false);
-  }
+};
