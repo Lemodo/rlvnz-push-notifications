@@ -1,9 +1,6 @@
 //init firebase
 //TODO: add firebase config stuff
 
-import("https://www.gstatic.com/firebasejs/3.6.2/firebase.js");
-import("https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js");
-
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
   authDomain: "relvnz-push-notifications.firebaseapp.com",
