@@ -38,7 +38,6 @@ if ('serviceWorker' in navigator) {
     })
     .then((token) => {
       localStorage.setItem('browserToken', token);
-      const token = localStorage.getItem('browserToken');
       $.post({
         type: 'POST',
         url: '/api/preNotificationAdd',

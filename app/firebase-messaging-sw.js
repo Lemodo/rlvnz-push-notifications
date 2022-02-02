@@ -1,8 +1,5 @@
 importScripts('https://www.gstatic.com/firebasejs/3.5.2/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js');
-importScripts("https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js",);
-
-
 
 // TODO: fill in messaging sender id
 firebase.initializeApp({
