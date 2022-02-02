@@ -5,7 +5,7 @@ const request = require('request');
 const cors = require('cors');
 const tokenRouter = module.exports = exports = express.Router();
 
-app.use(cors())
+tokenRouter.use(cors())
 // Simple route to accept token from user
 tokenRouter.post('/setToken', jsonParser, (req, res) => {
     const token = JSON.stringify(req.body.token, 4);
