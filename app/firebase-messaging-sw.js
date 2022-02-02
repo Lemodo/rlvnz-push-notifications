@@ -29,7 +29,7 @@ messaging.setBackgroundMessageHandler((payload) => {
   const notificationTitle = data.title;
   const notificationOptions = {
     body: data.body,
-    icon: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fmarketplace.haendlerbund.de%2Fpartnerangebot-relevanz-dynamisches-retargeting&psig=AOvVaw2wMnqRyhndJloLd_Z6qyki&ust=1643279047927000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLCc2NGZz_UCFQAAAAAdAAAAABAD",
+    icon: data.icon,
     actions: [
       {action: 'confirmAttendance', title: '👍 Confirm'},
       {action: 'cancel', title: '👎 Deny'}

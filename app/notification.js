@@ -80,19 +80,3 @@ if ('serviceWorker' in navigator) {
     });
   }, false);
   }
-
-
-/* Callback fired if Instance ID token is updated.
-messaging.onTokenRefresh(function() {
-  messaging.getToken()
-  .then(function(refreshedToken) {
-    console.log('Token refreshed.');
-      refreshedToken = token;
-    // ...
-  })
-  .catch(function(err) {
-    console.log('Unable to retrieve refreshed token ', err);
-    showToken('Unable to retrieve refreshed token ', err);
-  });
-});
-*/
