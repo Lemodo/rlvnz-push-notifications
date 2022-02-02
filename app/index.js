@@ -19,6 +19,7 @@ document.getElementById("addTopic").addEventListener("click", function() {
         headers: headers
     }).done(function(response) {
         console.log(response);
+        document.getElementById(topicResponse).innerHTML = response
     })
 
 });
