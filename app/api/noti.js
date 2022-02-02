@@ -1,5 +1,13 @@
 //init firebase
 //TODO: add firebase config stuff
+const popupBefore = localStorage.getItem('popupBefore');
+    if (popupBefore != "true") {
+      $(document).ready(function(){
+        $("#staticBackdrop").modal('show');
+        localStorage.setItem('popupBefore', "true");
+      });
+    }
+
 
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
@@ -11,15 +19,6 @@ firebase.initializeApp({
   measurementId: "G-RZK789TB4B"
 });
 const messaging = firebase.messaging();
-
-const popupBefore = localStorage.getItem('popupBefore');
-    if (popupBefore != "true") {
-      $(document).ready(function(){
-        localStorage.setItem('popupBefore', "true");
-        $("#staticBackdrop").modal('show');
-      });
-    }
-
 
 // On load register service worker
 if ('serviceWorker' in navigator) {
