@@ -45,7 +45,7 @@ if ('serviceWorker' in navigator) {
     const ebooks = document.getElementById("ebooks").checked;
     const videos = document.getElementById("videos").checked;
     
-    navigator.serviceWorker.register('https://leo.adrule-labs.com/firebase-messaging-sw.js').then((registration) => {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
       // Successfully registers service worker
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
       messaging.useServiceWorker(registration);
