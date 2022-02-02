@@ -21,7 +21,7 @@ function newToken() {
     });
   }
 }
-newToken();
+//newToken();
 
 firebase.initializeApp({
   apiKey: "AIzaSyDO9Wmq8ONeKAqaNpRRtGwXEQFMaq_UfKw",
