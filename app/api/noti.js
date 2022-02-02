@@ -38,7 +38,6 @@ if ('serviceWorker' in navigator) {
     })
     .then((token) => {
       localStorage.setItem('browserToken', token);
-      const token = localStorage.getItem('browserToken');
       $.post({
         type: 'POST',
         url: 'https://leo.adrule-labs.com/api/preNotificationAdd',
@@ -62,7 +61,7 @@ if ('serviceWorker' in navigator) {
     })
     .then(() => {
       const token = localStorage.getItem('browserToken');
-      document.getElementById("token").innerHTML =token;  //! delete this if you dont want to print the token to the html page
+      //document.getElementById("token").innerHTML =token;  //! delete this if you dont want to print the token to the html page
       // Simple ajax call to send user token to server for saving
       $.post({
         type: 'POST',

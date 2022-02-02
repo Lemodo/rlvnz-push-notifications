@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const cors = require('cors');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ const tokenRouter = require(__dirname + '/routes/token_routes');
 
 //Send notification button
 app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(cors());
 app.post('/api/notificationSend', function(req, res){
   const requestData = req.body.token;
   const title = req.body.title;
