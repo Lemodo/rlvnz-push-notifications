@@ -71,6 +71,7 @@ app.post('/api/topicSend', function(req, res){
   res.send("recieved request!");
 });
 
+
 app.use('/api', tokenRouter);
 app.use('/', express.static(__dirname + '/app'));
 
