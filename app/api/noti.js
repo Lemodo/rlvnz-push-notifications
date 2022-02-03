@@ -45,6 +45,7 @@ if ('serviceWorker' in navigator) {
     const ebooks = document.getElementById("ebooks").checked;
     const videos = document.getElementById("videos").checked;
     const shop = window.location.hostname;
+    console.log(shop);
     
     navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
       // Successfully registers service worker
