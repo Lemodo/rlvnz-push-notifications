@@ -44,6 +44,7 @@ if ('serviceWorker' in navigator) {
     const blogarticles = document.getElementById("blogartices").checked;
     const ebooks = document.getElementById("ebooks").checked;
     const videos = document.getElementById("videos").checked;
+    const shop = window.location.hostname;
     
     navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
       // Successfully registers service worker
@@ -71,7 +72,8 @@ if ('serviceWorker' in navigator) {
           "podcasts": podcasts, 
           "blogarticles": blogarticles, 
           "ebooks": ebooks, 
-          "videos": videos}),
+          "videos": videos,
+          "host": shop}),
         contentType: 'application/json',
         success: (data) => {
           console.log('Success ', data);

@@ -30,11 +30,11 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
   const blogarticles = (req.body.blogarticles ===true ? 1 : 0);
   const ebooks = (req.body.ebooks ===true ? 1 : 0);
   const videos = (req.body.videos  ? 1 : 0);
+  const shop = (req.body.host);
   const headers = {
     'Authorization': 'key=AAAAD3rw-Rg:APA91bG4zeV4RiSqlR7r5Xv-RCrXkHZ4zp9d0X8_X19ZZtZvLZlQXTQEgxAhB6OXvXwCWxPAXjfY2Y5coE8E4ROz0KBCjYyDGQiwo8WGZQr15NmrbWUkTUpihieNFWJOcdUOqHYz79k4',
   };
   res.send("recieved request!");
-console.log(req.body.webinars);
   
     if (token != null || token !== undefined) {
         const options = {
@@ -43,7 +43,7 @@ console.log(req.body.webinars);
             headers: headers
         };
         connection.query(
-            'INSERT IGNORE INTO noti (token, webinars, casestudies, podcasts, blogarticles, ebooks, videos) VALUES (?, ?, ?, ?, ?, ?, ?)', [token, webinars, casestudies, podcasts, blogarticles, ebooks, videos],
+            'INSERT IGNORE INTO noti (token, webinars, casestudies, podcasts, blogarticles, ebooks, videos, shop) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [token, webinars, casestudies, podcasts, blogarticles, ebooks, videos, shop],
             function(err, results, fields) {
               console.log(results); // results contains rows returned by server
             }
