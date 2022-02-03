@@ -21,5 +21,9 @@ document.getElementById("addTopic").addEventListener("click", function() {
         console.log(response);
         document.getElementById("topicResponse").innerHTML = response
     })
+});
 
+document.getElementById("numberTopics").addEventListener("click", function() {
+    const numberTopics = document.getElementById("numberTopics").value;
+    
 });
