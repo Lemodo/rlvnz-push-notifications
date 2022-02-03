@@ -29,6 +29,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
   const casestudies = (req.body.casestudies ===true ? 1 : 0);
   const podcasts = (req.body.podcasts ===true ? 1 : 0);
   const blogarticles = (req.body.blogarticles ===true ? 1 : 0);
+  console.log(blogarticles);
   const ebooks = (req.body.ebooks ===true ? 1 : 0);
   const videos = (req.body.videos  ? 1 : 0);
   const shop = (req.body.host);
@@ -102,6 +103,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
         method: "POST",
         headers: headers
         };
+        console.log(options);
         function callback(error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body);
