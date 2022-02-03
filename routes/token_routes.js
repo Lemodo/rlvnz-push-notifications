@@ -58,7 +58,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
 
     if (webinars === "true"){
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_webinars',
+            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_webinars',
             method: "POST",
             headers: headers
         };
@@ -71,7 +71,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (casestudies === "true"){
         const options = {
-            url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_casestudies',
+            url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_casestudies',
             method: "POST",
             headers: headers
         };
@@ -84,7 +84,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (podcasts === "true"){
     const options = {
-        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_podcasts',
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_podcasts',
         method: "POST",
         headers: headers
     };
@@ -97,7 +97,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (blogarticles === "true"){
         const options = {
-        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_blogarticles',
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_blogarticles',
         method: "POST",
         headers: headers
         };
@@ -110,7 +110,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (ebooks === "true"){
         const options = {
-        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_ebooks',
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_ebooks',
         method: "POST",
         headers: headers
         };
@@ -123,7 +123,7 @@ tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
     }
     if (videos === "true"){
         const options = {
-        url: 'https://iid.googleapis.com/iid/v1/\"'+token+'\"/rel/topics/shop1_videos',
+        url: 'https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/shop1_videos',
         method: "POST",
         headers: headers
         };
