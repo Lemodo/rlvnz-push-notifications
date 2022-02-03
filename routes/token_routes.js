@@ -23,7 +23,8 @@ tokenRouter.post('/setToken', jsonParser, (req, res) => {
 
 
 tokenRouter.post('/preNotificationAdd', jsonParser, function(req, res){
-  const token = req.body.token;
+
+  const token = JSON.stringify(req.body.token);
   const webinars = (req.body.webinars ===true ? 1 : 0);
   const casestudies = (req.body.casestudies ===true ? 1 : 0);
   const podcasts = (req.body.podcasts ===true ? 1 : 0);
