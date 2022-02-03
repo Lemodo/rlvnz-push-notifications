@@ -8,8 +8,6 @@ const PORT = process.env.PORT || 3000;
 const tokenRouter = require(__dirname + '/routes/token_routes');
 
 
-
-
 //Send notification button
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cors());
@@ -25,7 +23,7 @@ app.post('/api/notificationSend', function(req, res){
   };
 
   console.log("sending to:" + requestData);
-  
+
   const options = {
     url: 'https://fcm.googleapis.com/fcm/send',
     method: 'POST',
@@ -38,13 +36,11 @@ app.post('/api/notificationSend', function(req, res){
           console.log(body);
       }
   }
-
   request(options, callback);
   res.send("recieved request!");
 });
 
 //send topic button
-app.use(bodyParser.urlencoded({ extended: true })); 
 app.post('/api/topicSend', function(req, res){
   const requestData = req.body.topic;
   const title = req.body.title;
@@ -74,7 +70,6 @@ app.post('/api/topicSend', function(req, res){
   request(options, callback);
   res.send("recieved request!");
 });
-
 
 app.use('/api', tokenRouter);
 app.use('/', express.static(__dirname + '/app'));
