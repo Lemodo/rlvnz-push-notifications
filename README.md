@@ -79,9 +79,6 @@ Firebase Cloud Messaging is a free of charge service offered by Google.
 * [HTML & CSS](https://getbootstrap.com/)
 * [Firebase Cloud Messaging](https://firebase.com)
 * [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Express](https://expressjs.com/de/)
-* [Request](https://www.npmjs.com/package/request)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -137,7 +134,14 @@ Make sure you have installed nodejs and npm and head over to the main directory.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Currently there is only one page, the frontend dashboard, working. The system isn't complete yet, but ultimatively, you should only need to add one `<script>` tag into your Homepage and send notifications using the frontend dashboard hosted on another server.
+To implement notifications on another website you'll need to copy the modal loading in and all of the script tags.
+```html
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='https://www.gstatic.com/firebasejs/3.6.2/firebase.js'></script>
+<script src='https://www.gstatic.com/firebasejs/3.5.2/firebase-messaging.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+```
+Then upload the firebase-messaging-sw.js to your server. This is the service worker file needed and can not be imported through a CDN.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
